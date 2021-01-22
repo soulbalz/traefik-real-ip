@@ -10,7 +10,7 @@ import (
 const (
 	xRealIP        = "X-Real-Ip"
 	xForwardedFor  = "X-Forwarded-For"
-	cfConnectingIp = "Cf-Connecting-Ip"
+	cfConnectingIP = "Cf-Connecting-Ip"
 )
 
 // Config the plugin configuration.
@@ -66,7 +66,8 @@ func (r *RealIPOverWriter) ServeHTTP(rw http.ResponseWriter, req *http.Request) 
 	}
 
 	if realIP == "" {
-		realIP = req.Header.Get(cfConnectingIp)
+		realIP = req.Header.Get(cfConnectingIP)
+		req.Header.Set(xForwardedFor, realIP)
 	}
 
 	req.Header.Set(xRealIP, realIP)
