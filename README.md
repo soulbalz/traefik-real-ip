@@ -17,7 +17,7 @@ experimental:
   plugins:
     traefik-real-ip:
       modulename: github.com/soulbalz/traefik-real-ip
-      version: v1.0.5
+      version: v1.0.3
 ```
 
 ### Dynamic configuration
@@ -79,7 +79,7 @@ spec:
             - --providers.kubernetescrd
             - --pilot.token={YOUR_PILOT_TOKEN}
             - --experimental.plugins.traefik-real-ip.modulename=github.com/soulbalz/traefik-real-ip
-            - --experimental.plugins.traefik-real-ip.version=v1.0.2
+            - --experimental.plugins.traefik-real-ip.version=v1.0.3
           ports:
             - name: web
               containerPort: 80
